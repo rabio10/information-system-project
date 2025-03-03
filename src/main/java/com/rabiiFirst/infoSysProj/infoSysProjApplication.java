@@ -1,13 +1,13 @@
-package com.rabiiFirst.rabrab;
+package com.rabiiFirst.infoSysProj;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RabrabApplication {
+public class infoSysProjApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RabrabApplication.class, args);
+		SpringApplication.run(infoSysProjApplication.class, args);
 	}
 
 }

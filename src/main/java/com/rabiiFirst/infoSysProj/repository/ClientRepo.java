@@ -1,6 +1,6 @@
-package com.rabiiFirst.rabrab.repository;
+package com.rabiiFirst.infoSysProj.repository;
 
-import com.rabiiFirst.rabrab.model.Client;
+import com.rabiiFirst.infoSysProj.model.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.rabiiFirst.rabrab.model;
+package com.rabiiFirst.infoSysProj.model;
 
 import jakarta.persistence.*;
 
