@@ -13,7 +13,7 @@ public class Fournisseur {
     private String emailFournisseur;
     private String adresseFournisseur;
 
-//    // referencing
+    // referencing
 //    @ManyToOne
 //    @JoinColumn(name = "idClassFournisseur")
 //    private ClassFournisseur classFournisseur;

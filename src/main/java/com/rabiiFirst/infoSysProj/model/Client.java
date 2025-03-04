@@ -6,6 +6,12 @@ import jakarta.persistence.*;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String Name;
+    private int idClient;
+    private String nomClient;
+    private String prenomClient;
+    private String adresseClient;
+    private String telephoneClient;
+    private String emailClient;
+    private String codePostalClient;
+    private String villeClient;
 }
