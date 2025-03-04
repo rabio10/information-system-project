@@ -1,9 +1,6 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class PaiementFournisseur {
@@ -18,4 +15,9 @@ public class PaiementFournisseur {
     }
     private methodePay methodePayementFournisseur;
     private double montantPayeeFournisseur;
+
+    // referencing
+    @ManyToOne
+    @JoinColumn(name = "idFactureFournisseurFk")
+    private FactureFournisseur factureFournisseur;
 }

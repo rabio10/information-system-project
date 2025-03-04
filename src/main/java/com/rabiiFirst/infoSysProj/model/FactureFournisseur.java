@@ -1,11 +1,9 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class FactureFournisseur {
@@ -15,4 +13,12 @@ public class FactureFournisseur {
 
     private Date dateFactureFournisseur;
     private double montantTotalFactureFournisseur;
+
+    // referencing
+    @OneToOne
+    @JoinColumn(name = "idCommandeFournisseurFk")
+    private CommandeFournisseur commandeFournisseur;
+
+    @OneToMany(mappedBy = "factureFournisseur")
+    private List<PaiementFournisseur> paiementFournisseurs;
 }

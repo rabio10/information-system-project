@@ -2,6 +2,7 @@ package com.rabiiFirst.infoSysProj.model;
 
 import jakarta.persistence.*;
 
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -12,7 +13,15 @@ public class ClassFournisseur {
     private char nomClassFournisseur;
     private int seuilClassFournisseur;
 
-    @OneToMany(mappedBy = "Fournisseur")
-    private List<Fournisseur> fournisseurs;
 
+    @OneToMany(mappedBy = "classFournisseur")
+    private Collection<Fournisseur> fournisseur;
+
+    public Collection<Fournisseur> getFournisseur() {
+        return fournisseur;
+    }
+
+    public void setFournisseur(Collection<Fournisseur> fournisseur) {
+        this.fournisseur = fournisseur;
+    }
 }

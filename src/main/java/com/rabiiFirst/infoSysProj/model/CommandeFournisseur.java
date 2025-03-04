@@ -1,9 +1,6 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -22,4 +19,13 @@ public class CommandeFournisseur {
     }
     private statusCmd statusCommandeFournisseur;
     private int delaiLivraisonCommandeFournisseur;
+
+    // referencing
+    @ManyToOne
+    @JoinColumn(name = "idFournisseurFK")
+    private Fournisseur fournisseur;
+
+    @OneToOne
+    @JoinColumn(name = "idFactureFournisseurFk")
+    private FactureFournisseur factureFournisseur;
 }
