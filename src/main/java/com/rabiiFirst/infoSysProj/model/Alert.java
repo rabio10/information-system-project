@@ -20,6 +20,7 @@ public class Alert {
 
     // hado zdthom mn 3ndi , i guess ghay5sso
 
-    @OneToMany(mappedBy = "")
-    private List<Produit> produit;
+    @ManyToOne
+    @JoinColumn(name = "idProduitFk")
+    private Produit produit;
 }

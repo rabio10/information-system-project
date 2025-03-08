@@ -27,7 +27,6 @@ public class Produit {
     @OneToMany(mappedBy = "produit")
     private List<LigneDeCommandeClient> ligneDeCommandeClient;
 
-    @ManyToOne
-    @JoinColumn(name = "idAlertFk", nullable = true)
-    private Alert alert;
+    @OneToMany(mappedBy = "produit")
+    private List<Alert> alert;
 }
