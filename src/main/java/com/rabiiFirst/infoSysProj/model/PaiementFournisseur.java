@@ -17,6 +17,7 @@ public class PaiementFournisseur {
     private double montantPayeeFournisseur;
 
     // referencing
+
     @ManyToOne
     @JoinColumn(name = "idFactureFournisseurFk")
     private FactureFournisseur factureFournisseur;

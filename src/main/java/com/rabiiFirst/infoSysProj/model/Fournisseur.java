@@ -16,6 +16,7 @@ public class Fournisseur {
     private String adresseFournisseur;
 
     // referencing
+
     @ManyToOne
     @JoinColumn(name = "idClassFournisseur")
     private ClassFournisseur classFournisseur;

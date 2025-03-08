@@ -13,9 +13,12 @@ public class ClassFournisseur {
     private char nomClassFournisseur;
     private int seuilClassFournisseur;
 
+    // referencing
 
     @OneToMany(mappedBy = "classFournisseur")
     private Collection<Fournisseur> fournisseur;
+
+    // getters and setters
 
     public Collection<Fournisseur> getFournisseur() {
         return fournisseur;

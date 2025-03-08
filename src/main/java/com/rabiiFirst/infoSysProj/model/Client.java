@@ -2,6 +2,8 @@ package com.rabiiFirst.infoSysProj.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Client {
     @Id
@@ -14,4 +16,8 @@ public class Client {
     private String emailClient;
     private String codePostalClient;
     private String villeClient;
+
+    // referencing
+    @OneToMany(mappedBy = "client")
+    private List<CommandeClient> commandeClient;
 }

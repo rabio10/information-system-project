@@ -1,9 +1,6 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -19,4 +16,9 @@ public class Controle {
         BON, ACCEPTABLE, MAUVAIS  // if there's smth to add
     }
     private statusControle statusControle;
+
+    // referencing
+    @OneToOne
+    @JoinColumn(name = "idReceptionFk")
+    private Reception reception;
 }

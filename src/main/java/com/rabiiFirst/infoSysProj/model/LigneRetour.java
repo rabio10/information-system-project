@@ -1,9 +1,8 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class LigneRetour {
@@ -13,5 +12,13 @@ public class LigneRetour {
 
     private int quantite;
 
-    // TODO: relations(ligne de livraison, retour) , and attribute produit
+
+    // referencing
+    @OneToOne
+    @JoinColumn(name = "idLigneDeLivraisonFk")
+    private LigneDeLivraison ligneDeLivraison;
+
+    @ManyToOne
+    @JoinColumn(name = "idRetourFk")
+    private Retour retour;
 }

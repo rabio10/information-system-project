@@ -1,9 +1,6 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class LigneDeCommandeClient {
@@ -14,5 +11,20 @@ public class LigneDeCommandeClient {
     private int quantite;
     private double prixUnitaire;
 
-    // TODO: attributes : produit(linked to produit), commande(linked to commande)
+
+    // referencing
+
+    @ManyToOne
+    @JoinColumn(name = "produitIdFk")
+    private Produit produit;
+
+    // let's assume that un ligne de commande client est lié par un seul ligne de livraison
+    // ya3ni la livraison d'une qte de produit x se fait une seul fois (tout la qte est livré dans une seul livraison)
+    @OneToOne
+    @JoinColumn(name = "idLigneDeLivraisonFk")
+    private LigneDeLivraison ligneDeLivraison;
+
+    @ManyToOne
+    @JoinColumn(name = "idCommandeClientFk")
+    private CommandeClient commandeClient;
 }

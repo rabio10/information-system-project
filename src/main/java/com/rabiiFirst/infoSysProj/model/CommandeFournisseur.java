@@ -3,6 +3,7 @@ package com.rabiiFirst.infoSysProj.model;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class CommandeFournisseur {
@@ -26,6 +27,9 @@ public class CommandeFournisseur {
     private Fournisseur fournisseur;
 
     @OneToOne
-    @JoinColumn(name = "idFactureFournisseurFk")
+    @JoinColumn(name = "id_Facture_Fournisseur_Fk")
     private FactureFournisseur factureFournisseur;
+
+    @OneToMany(mappedBy = "commandeFournisseur")
+    private List<LigneDeCommandeFournisseur> ligneDeCommandeFournisseur;
 }

@@ -1,9 +1,8 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class LigneDeCommandeFournisseur {
@@ -14,6 +13,16 @@ public class LigneDeCommandeFournisseur {
     private int quantite;
     private double prixUnitaire;
 
-    // TODO : two attributes related to produit and commandeFournisseur
+    // referencing
 
+    @ManyToOne
+    @JoinColumn(name = "idCommandeFournisseurFk")
+    private CommandeFournisseur commandeFournisseur;
+
+    @OneToMany(mappedBy = "LigneDeCommandeFournisseur")
+    private List<LigneDeReception> ligneDeReception;
+
+    @ManyToOne
+    @JoinColumn(name = "idProduitFk")
+    private Produit produit;
 }

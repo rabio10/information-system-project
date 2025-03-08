@@ -1,11 +1,9 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Retour {
@@ -18,4 +16,13 @@ public class Retour {
         // idk !!
     }
     private statusRetour statusRetour;
+
+    // referencing
+
+    @OneToMany(mappedBy = "retour")
+    private List<LigneRetour> ligneRetour;
+
+    @OneToOne
+    @JoinColumn(name = "idRemboursementFk",nullable = true)
+    private Remboursement remboursement;
 }

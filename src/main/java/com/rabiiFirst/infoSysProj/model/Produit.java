@@ -1,9 +1,8 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Produit {
@@ -18,5 +17,17 @@ public class Produit {
     private int quantiteEnStock;
     private Boolean stockOK;
 
-    // TODO: all relations with other classes
+    // referencing
+    @OneToMany(mappedBy = "produit")
+    private List<LigneDeCommandeFournisseur> ligneDeCommandeFournisseur;
+
+    @OneToMany(mappedBy = "produit")
+    private List<MouvementDeStock> mouvementDeStock;
+
+    @OneToMany(mappedBy = "produit")
+    private List<LigneDeCommandeClient> ligneDeCommandeClient;
+
+    @ManyToOne
+    @JoinColumn(name = "idAlertFk", nullable = true)
+    private Alert alert;
 }

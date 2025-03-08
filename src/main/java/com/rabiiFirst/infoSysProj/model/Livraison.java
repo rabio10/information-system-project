@@ -1,11 +1,9 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Livraison {
@@ -19,5 +17,10 @@ public class Livraison {
     }
     private statusLivraison statusLivraison;
 
-    // TODO: relations, and a class : BonDeLivraison (idk ach ghaykono attributes dialha)
+    // BonDeLivraison (idk ach ghaykono attributes dialha) hadchi 3lach madrthach
+
+    // referencing
+
+    @OneToMany(mappedBy = "livraison")
+    private List<LigneDeLivraison> ligneDeLivraison;
 }

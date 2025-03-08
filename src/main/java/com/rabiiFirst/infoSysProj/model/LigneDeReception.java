@@ -1,9 +1,6 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class LigneDeReception {
@@ -13,5 +10,12 @@ public class LigneDeReception {
 
     private int quantite;
 
-    //TODO : 3 attributes related to : ligne de commande, reception, produit
+    // referencing
+    @ManyToOne
+    @JoinColumn(name = "idLigneDeCommandeFournisseurFk")
+    private LigneDeCommandeFournisseur LigneDeCommandeFournisseur;
+
+    @ManyToOne
+    @JoinColumn(name = "idReceptionFk")
+    private Reception reception;
 }

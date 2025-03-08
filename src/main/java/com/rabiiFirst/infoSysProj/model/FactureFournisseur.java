@@ -15,6 +15,7 @@ public class FactureFournisseur {
     private double montantTotalFactureFournisseur;
 
     // referencing
+
     @OneToOne
     @JoinColumn(name = "idCommandeFournisseurFk")
     private CommandeFournisseur commandeFournisseur;

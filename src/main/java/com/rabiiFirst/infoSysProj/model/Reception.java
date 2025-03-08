@@ -1,11 +1,9 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Reception {
@@ -19,5 +17,12 @@ public class Reception {
     }
     private statusReception statusReception;
 
-    // TODO: 1 attribute : controle , linked to controle
+    // referencing
+
+    @OneToMany(mappedBy = "reception")
+    private List<LigneDeReception> ligneDeReception;
+
+    @OneToOne
+    @JoinColumn(name = "idControleFk")
+    private Controle controle;
 }

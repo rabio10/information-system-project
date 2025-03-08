@@ -1,11 +1,9 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class CommandeClient {
@@ -19,6 +17,17 @@ public class CommandeClient {
     }
     private statusCommandeClient statusCommande;
 
-    // TODO: attributes client
+    // referencing
+    @OneToMany(mappedBy = "commandeClient")
+    private List<LigneDeCommandeClient> ligneDeCommandeClients;
 
+    @ManyToOne
+    @JoinColumn(name = "idClientFk")
+    private Client client;
+
+    @OneToOne
+    @JoinColumn(name = "idFactureClientFk")
+    private FactureClient factureClient;
+
+    // madrtch bonDeCommande 7itach idk achno ghaykon fiha f attributs o ma3rftch wach atsla7 lchi haja
 }

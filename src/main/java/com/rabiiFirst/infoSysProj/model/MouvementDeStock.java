@@ -1,11 +1,9 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class MouvementDeStock {
@@ -15,8 +13,21 @@ public class MouvementDeStock {
     private int produitId;
     private int quantite;
     private Date dateMouvementDeStock;
-    // status ? idk ach ghaykono les status possible hna !!
-    // tiban lia nefsshom ghaykono f selectionActions
-    // TODO : relation with selectionActions, and ass the class : selectionActions ;
-    //  no need foe typeSelectionActions you can just make it as enum
+    private enum selectionAction {
+        AJOUTER_AU_STOCK, RETIRER_DU_STOCK
+    }
+    private selectionAction action;
+    private enum statusAction {
+        EN_ATTENTE, EN_COURS, FAITE
+    }
+    private statusAction statusAction;
+    // tiban lia nefsshom ghaykono f selectionActions hadchi 3lach madrtch table dial
+    // selectionAction and typeSelectionAction o 3awdthom b enum lkola w7da o sf
+    // 7itach makain lach , enum tatdir lkhedma
+
+
+    // referencing
+    @ManyToOne
+    @JoinColumn(name = "produitIdFk")
+    private Produit produit;
 }

@@ -1,9 +1,6 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -16,5 +13,9 @@ public class Remboursement {
     private Date dateRemboursement;
     private double montantRemboursement;
 
-    // TODO: attribute Retour(linked to retour)
+    // referencing
+
+    @OneToOne
+    @JoinColumn(name = "idRetourFk")
+    private Retour retour;
 }

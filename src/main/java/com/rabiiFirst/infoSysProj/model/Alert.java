@@ -1,11 +1,9 @@
 package com.rabiiFirst.infoSysProj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Alert {
@@ -19,4 +17,9 @@ public class Alert {
         LEGER, CRITIQUE, STOCK_SECURITE // add more if you want
     }
     private typeAlert typeAlert;
+
+    // hado zdthom mn 3ndi , i guess ghay5sso
+
+    @OneToMany(mappedBy = "")
+    private List<Produit> produit;
 }
