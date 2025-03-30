@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/fournisseur")
+@RequestMapping("api/fournisseur")
 public class FournisseurController {
     @Autowired
     FournisseurService fournisseurService;
@@ -40,7 +40,7 @@ public class FournisseurController {
         return fournisseurService.deleteAllFournisseur();
     }
 
-    @PatchMapping("/{id]")
+    @PatchMapping("/{id}")
     public ResponseEntity<Object> updateFournisseurById(@PathVariable int id, @RequestBody Fournisseur f) {
         return fournisseurService.updateFournisseurById(id,f);
     }
