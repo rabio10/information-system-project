@@ -5,7 +5,7 @@
 4. also check the database name ( it's in datasource url in Application.properties file )
 5. run it
 
-# user authentification and registration
+# User Authentification and Registration
 steps for the user :
 1. make a POST request to: http://localhost:8080/registration to register with the body in JSON
 ````
@@ -17,18 +17,28 @@ steps for the user :
   "password":"rabii"
 }
 ````
-2. you will receive an email for comfirmation.
+2. you will receive an email for confirmation.
 3. clicking the link in the email redirect you to a page that says : Please click on the below link to Login:
-the link sould be like this ``"http://localhost:8080/login?token=" + token``
+the link should be like this ``"http://localhost:8080/login?token=" + token``
 4. clicking it would confirm you and redirect you to the /login page
 5. type your credentials and then login
-6. Login is succesful, for now all sucess login would redirect to the root page ``/``
+6. Login is successful, for now all success login would redirect to the root page ``/``.
+### what to configure for this to work :
+1. in ``application.properties`` set the sender email (the email that sends confirmation link)
+2. set the password ( get the password of your email from google app password , go to account > settings > app password, and create a password of gmail)
+3. set the sender email in ``EmailService.java``
+4. all done.
+
 # List of API Endpoints
-# API Endpoints
 
 ## Home
 **Base URL:** `/`
 - **GET** `/` – Serve `index.html`
+
+## Registration
+**Base URL:** `/registration`
+- **POST** `` `` - Register a new user (JSON body as shown above)
+- **GET** ``/confirmation``- to confirm user's email (done through confirmation email, no need to make http request to it manually)
 
 ## Client
 **Base URL:** `/api/client`
